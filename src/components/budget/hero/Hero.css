@@ -20,4 +20,61 @@
     width: 100%;
     height: 350px;
     background: var(--gradient-bg-transparent);
+    position: absolute;
+    top: 0;
+    left: 0;
 }
+
+
+/* start to stying hero budget numbers */
+.hero_budget-numbers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+   
+    margin-top: -140px;
+}
+
+.hero_budget-numbers .budget_numbers{
+    z-index: 1;
+    background-color: var(--gradient-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+    text-align: center;
+    border-radius: 2px;
+}
+.budget_numbers:nth-child(1){
+    background-color: var( --color-primary);
+}
+.budget_numbers:nth-child(2){
+    background-color: var( --color-success);
+}
+.budget_numbers:nth-child(3){
+    background-color: var( --color-error);
+}
+.budget_numbers-icon{
+    background-color: #0002;
+    font-size: 3rem;
+    border-radius: 500px;
+    height: 90px;
+    width: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2px;
+
+
+}
+.budget_numbers-money > div {
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.budget_numbers-money > small {
+    color: var(--color-text-light);
+}
+
+/* end of stying hero budget number */

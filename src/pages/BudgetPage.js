@@ -1,7 +1,7 @@
 import React from 'react'
 import MainLayout from '../layout/MainLayout'
 import Here from 'components/budget/hero/Hero'
-function BudgetPage() {
+const  BudgetPage = () => {
   return (
     <div>
         <MainLayout>

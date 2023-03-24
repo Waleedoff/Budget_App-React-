@@ -3,10 +3,7 @@ import './Hero.css'
 import BudgetNumbers from './BudgetNumbers'
 
 
-
-
-
-function Hero() {
+const  Hero = () => {
   return (
    
     <div className='here_budget'>
@@ -14,7 +11,8 @@ function Hero() {
             <img src='https://unsplash.it/1200/400' alt='random img'/>
 
         </div>
-
+        
+      
         <div className='container'>
             <div className='hero_budget-numbers'>
                 <BudgetNumbers money='500' title='totoal money'>icon</BudgetNumbers>

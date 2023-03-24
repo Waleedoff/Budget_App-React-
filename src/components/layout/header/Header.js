@@ -6,7 +6,7 @@ import LogoImg from 'assets/images/logo.png'
 
 
 
-function Header() {
+const  Header = () => {
   return (
     <header className='header scrolled'>
       <div className='container'>

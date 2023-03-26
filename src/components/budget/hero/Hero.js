@@ -2,7 +2,6 @@ import React from 'react'
 import './Hero.css'
 import BudgetNumbers from './BudgetNumbers'
 
-
 const  Hero = () => {
   return (
    

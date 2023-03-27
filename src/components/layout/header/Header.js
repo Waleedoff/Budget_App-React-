@@ -1,7 +1,7 @@
 import React, { useEffect,useRef, useState } from 'react'
 import './Header.css'
 import LogoImg from 'assets/images/logo.png'
-import Button from 'components/ui/button/Button'
+import {Button} from 'components/ui'
 const  Header = () => {
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -50,7 +50,7 @@ const  Header = () => {
         
           {/* action */}
           <div className='header_action'>
-            <div className='header_action-add'>
+             <div className='header_action-add'>
                 <Button>+</Button>
             </div>
           </div>

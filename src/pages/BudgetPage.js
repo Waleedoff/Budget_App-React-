@@ -1,14 +1,13 @@
 import React from 'react'
 import MainLayout from '../layout/MainLayout'
 import Here from 'components/budget/hero/Hero'
-import Button from 'components/ui/button/Button'
+import BudgetContent from 'components/budget/BudgetContent/BudgetContent'
 const  BudgetPage = () => {
   return (
     <div>
         <MainLayout>
           <Here/>
-       
-
+       <BudgetContent/>
         </MainLayout>
     </div>
   )

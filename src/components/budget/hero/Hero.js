@@ -1,7 +1,7 @@
 import React from 'react'
 import './Hero.css'
 import BudgetNumbers from './BudgetNumbers'
-
+import {Coins, Wallet,CreditCard} from 'phosphor-react'
 const  Hero = () => {
   return (
    
@@ -14,9 +14,9 @@ const  Hero = () => {
       
         <div className='container'>
             <div className='hero_budget-numbers'>
-                <BudgetNumbers money='500' title='totoal money'>icon</BudgetNumbers>
-                <BudgetNumbers money='500' title='totoal income'>icon</BudgetNumbers>
-                <BudgetNumbers money='500' title='totoal expense'>icon</BudgetNumbers>
+                <BudgetNumbers money='500' title='totoal money'><Coins weight='duotone'/></BudgetNumbers>
+                <BudgetNumbers money='500' title='totoal income'><Wallet weight='duotone'/></BudgetNumbers>
+                <BudgetNumbers money='500' title='totoal expense'><CreditCard weight='duotone'/></BudgetNumbers>
 
             </div>
         </div>

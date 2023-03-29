@@ -2,6 +2,7 @@
 import React from 'react'
 import './BudgetContent.css'
 import { Tabs,Tab } from 'components/ui'
+import Transaction from './transactions/Transaction'
 
 const BudgetContent = () => {
   return (
@@ -9,7 +10,7 @@ const BudgetContent = () => {
         <div className="container">
             <Tabs>
                 <Tab title='data'>
-                        content
+                       <Transaction/>
                 </Tab>
 
                 <Tab title='income'>

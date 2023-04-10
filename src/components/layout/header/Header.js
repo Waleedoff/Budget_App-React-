@@ -1,7 +1,7 @@
 import React, { useEffect,useRef, useState } from 'react'
 import './Header.css'
 import LogoImg from 'assets/images/logo.png'
-import {Button} from 'components/ui'
+import {Button, Modal}  from 'components/ui'
 const  Header = () => {
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,8 +31,10 @@ const  Header = () => {
     }
   },[])
 
+  const [flag,setFlag]  = useState(false);
+  
 
-
+ 
   
   return (
     <header className={` header ${isScrolled ? 'scrolled' : ''} `}>
@@ -51,12 +53,13 @@ const  Header = () => {
           {/* action */}
           <div className='header_action'>
              <div className='header_action-add'>
-                <Button>+</Button>
+               <Button onClick={()=>setFlag(true)}>+</Button>
             </div>
           </div>
           </div>
         
       </div>
+      <Modal visible={flag} closeMode={()=>setFlag(false)} ><div>content</div></Modal>
     </header>
   )
 }

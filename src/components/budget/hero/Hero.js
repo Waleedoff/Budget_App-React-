@@ -14,7 +14,7 @@ const  Hero = () => {
       
         <div className='container'>
             <div className='hero_budget-numbers'>
-                <BudgetNumbers money='500' title='totoal money'><Coins weight='duotone'/></BudgetNumbers>
+                <BudgetNumbers money='500' title='totoal money'><Coins weight='duotone'/></BudgetNumbers> 
                 <BudgetNumbers money='500' title='totoal income'><Wallet weight='duotone'/></BudgetNumbers>
                 <BudgetNumbers money='500' title='totoal expense'><CreditCard weight='duotone'/></BudgetNumbers>
 

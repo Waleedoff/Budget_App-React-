@@ -46,7 +46,7 @@
 
 }
 
-.trans_item-icon-error{
+.trans_item-icon.error{
     background-color: var(--color-error);
 
 }
@@ -68,4 +68,9 @@
     align-items: center;
     gap: 1rem;
 
+}
+.error_data{
+    text-align: center;
+    color: var(--color-error);
+    
 }

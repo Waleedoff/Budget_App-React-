@@ -51,13 +51,16 @@
 }
 .budget_numbers:nth-child(1){
     background-color: var( --color-primary);
+    border-radius: 90px;
     
 }
 .budget_numbers:nth-child(2){
     background-color: var( --color-success);
+    border-radius: 90px;
 }
 .budget_numbers:nth-child(3){
     background-color: var( --color-error);
+    border-radius: 90px;
 }
 .budget_numbers-icon{
     background-color: #0002;

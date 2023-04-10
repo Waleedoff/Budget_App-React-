@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useReducer } from "react";
 import {  useRef } from "react";
 import { createContext } from "react";
-import { deleteTransactions, getTransactions } from "services/apis/Transaction.api";
+import { getTransactions } from "services/apis/Transaction.api";
 
 const InitialStatee = {
     data: [],  
@@ -11,7 +11,7 @@ const InitialStatee = {
     error: null, 
 } 
 
-export const transactionsContext =  createContext()
+export const categoriesContext =  createContext()
 
 
 
@@ -29,8 +29,7 @@ const contextReducer = (state,action) => {
             return {...state, loading: false, data: action.payload}; //payload == body
         case 'FETCH_ERROR':
             return {...state, loading: false, error: action.payload};
-        case 'STOP_LOADING':
-            return {...state,loading: false }
+       
          
         default:
             return  state
@@ -40,7 +39,7 @@ const contextReducer = (state,action) => {
 
 
 
-export const TransactionsProvider = ({children}) => {
+export const CategoriesProvider = ({children}) => {
     
     
     const [statee,dispttch]  = useReducer(contextReducer,InitialStatee)
@@ -53,18 +52,7 @@ export const TransactionsProvider = ({children}) => {
 
 
       
-      const handleDelete = async (id)=> {
-        try{
-            dispttch({type: 'FETCH_START'})
-             await deleteTransactions(id)
-            // dispttch({type: 'STOP_LOADING'})
-            fetchData()
-        }
-        catch(error){
-            dispttch({type: 'FETCH_ERROR',payload: error.message})
-        }
-        
-    }
+   
 
     
     const fetchData = useCallback ( async ()=> {
@@ -100,14 +88,14 @@ export const TransactionsProvider = ({children}) => {
     
     return (
        
-        <transactionsContext.Provider value = {{...statee ,handleDelete}}>
+        <categoriesContext.Provider value = {{...statee }}>
 
             {children}
             
-        </transactionsContext.Provider>
+        </categoriesContext.Provider>
        
         
     )
 }
 
-export default TransactionsProvider
+export default CategoriesProvider

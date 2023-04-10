@@ -5,8 +5,8 @@ const  BudgetNumbers = (props) => {
     <div className='budget_numbers'>
         
         <div className='budget_numbers-icon'>
-            {props.children}
-            
+            {props.children} 
+            {/* add here anything you want!! cause it's children */}
         
         </div>
 

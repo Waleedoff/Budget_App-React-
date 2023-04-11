@@ -2,6 +2,7 @@ import React, { useEffect,useRef, useState } from 'react'
 import './Header.css'
 import LogoImg from 'assets/images/logo.png'
 import {Button, Modal}  from 'components/ui'
+import BudgetForm from 'components/budget/BudgetContent/BudgetForm/BudgetForm'
 const  Header = () => {
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -59,7 +60,9 @@ const  Header = () => {
           </div>
         
       </div>
-      <Modal visible={flag} closeMode={()=>setFlag(false)} ><div>content</div></Modal>
+      <Modal visible={flag} closeMode={()=>setFlag(false)} ><BudgetForm
+      
+      /></Modal>
     </header>
   )
 }

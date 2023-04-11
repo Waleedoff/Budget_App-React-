@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useReducer } from "react";
 import {  useRef } from "react";
 import { createContext } from "react";
-import { getTransactions } from "services/apis/Transaction.api";
+import { getCategories } from "services/apis/Categories.api";
 
 const InitialStatee = {
     data: [],  
@@ -58,7 +58,7 @@ export const CategoriesProvider = ({children}) => {
     const fetchData = useCallback ( async ()=> {
         dispttch({type: 'FETCH_START'})
         try{
-            const data = await getTransactions()
+            const data = await getCategories() 
             dispttch({type: 'FETCH_SUCCESS', payload: data})
         }
         catch(error){

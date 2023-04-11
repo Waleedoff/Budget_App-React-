@@ -13,6 +13,13 @@ import axiosApi from './axiosApi';
     const {data} = await axiosApi.delete('/transactions/'+id)  //variable
       return data;
    }
+
+
+   export const postTransaction = async (body) => {
+    const {data} = await axiosApi.post('/transactions ' , body)
+
+    return data;
+   }
    
 
  

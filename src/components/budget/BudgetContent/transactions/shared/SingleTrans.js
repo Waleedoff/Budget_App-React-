@@ -10,19 +10,19 @@ function SingleTrans({e,categories}) {
 
   const currentCat = useMemo(()=>{
     // eslint-disable-next-line eqeqeq
-    let cat = categories.find(c => c.id == e.category)
+    let cat = categories.find(c => c.id === e.category)
 
-    // console.log(categories);
+    console.log(categories);
 
     if (cat && cat.name){
 
       
-      return cat;
+      return cat.name;
       
     }
     else 
     {
-      return ''
+      return cat
     }
   },[categories,e])
 

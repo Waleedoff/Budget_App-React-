@@ -100,7 +100,7 @@ export const TransactionsProvider = ({children}) => {
     
     return (
        
-        <transactionsContext.Provider value = {{...statee ,handleDelete}}>
+        <transactionsContext.Provider value = {{...statee ,handleDelete,fetchData}}>
 
             {children}
             

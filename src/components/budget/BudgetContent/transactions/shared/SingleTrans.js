@@ -1,17 +1,18 @@
-import React from 'react'
-import {Button} from 'components/ui'
+import {React,useState} from 'react'
+import {Button, Modal} from 'components/ui'
 import {CurrencyDollar, PencilLine, Trash} from 'phosphor-react'
 import { useContext } from 'react'
 import { transactionsContext } from 'services/context/budget/transactionsContex'
 import { useMemo } from 'react'
-function SingleTrans({e,categories}) {
+import BudgetForm from '../../BudgetForm/BudgetForm'
+function SingleTrans({e,categories,defalutData}) {
 
   const {handleDelete} = useContext(transactionsContext);
 
-  const currentCat = useMemo(()=>{
-    // eslint-disable-next-line eqeqeq
-    let cat = categories.find(c => c.id === e.category)
+  const [flag,setFlag] = useState(false);
 
+  const currentCat = useMemo(()=>{
+    let cat = categories.find(c => c.id === e.category)
     console.log(categories);
 
     if (cat && cat.name){
@@ -42,15 +43,18 @@ function SingleTrans({e,categories}) {
 
       </div>
       <div className="trans_item-cta">
-        <Button icon>
+        <Button   icon onClick={()=>setFlag(true)}>
         <PencilLine/>  
         </Button>
         <Button type='error' icon onClick={()=>handleDelete(e.id)}>
-          <Trash />
+          <Trash/>
         </Button>
 
       </div>
-
+    <Modal visible={flag} closeMode={()=>setFlag(false)} >
+        <BudgetForm defalutData={e}/>
+     
+    </Modal>
     </div>
   )
 }

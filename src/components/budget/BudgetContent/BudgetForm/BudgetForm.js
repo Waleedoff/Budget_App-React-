@@ -2,15 +2,14 @@ import { Button } from 'components/ui'
 import { useContext } from 'react'
 import { useState } from 'react'
 import {React} from 'react'
-import { postTransaction } from 'services/apis/Transaction.api'
+import { postTransaction, updateTransaction } from 'services/apis/Transaction.api'
 import { categoriesContext } from 'services/context/budget/catogriesContext'
 import { transactionsContext } from 'services/context/budget/transactionsContex'
 import './BudgetForm.css'
 
 
 
-const initailData = 
-{
+let initailData = {
  title: '',
  amount: '',
  type: 'income',
@@ -20,7 +19,11 @@ const initailData =
 
 
 
-const BudgetForm = () => {
+const BudgetForm = ({closeModal,defalutData}) => {
+
+    if (defalutData) { // !defalutData  == true ? initailData = {...defaultData};
+        initailData = {...defalutData}
+    }
 
     const [data,setData] = useState(initailData);
 
@@ -30,7 +33,7 @@ const BudgetForm = () => {
     const {fetchData} = useContext(transactionsContext)
 
     const [loading , setLoading] = useState(false);
-    // watch validation videos and apply that issues !!
+    // watch validation videos and apply that issues !! acc
     const handleValidation = () => {  
 
     }
@@ -52,11 +55,20 @@ const BudgetForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(data);
-        
-
+        setLoading(true)
+  
         try{
 
-           await postTransaction(data);
+           if (defalutData) {
+            await updateTransaction(defalutData.id,data);
+           
+
+           }
+           else 
+           {
+            await postTransaction(data);
+           
+           }
            fetchData()
            
             
@@ -66,15 +78,9 @@ const BudgetForm = () => {
         }
 
     }
-
-
-    
-
-
-
   return (
     <div className='new-budget'>
-        <h2>Add new Budget</h2>
+        <h2> {defalutData ? 'Edit' : "Add New"} Budget</h2>
 
         <form  className="form" onSubmit={handleSubmit}>
         <div className='form-group'>
@@ -178,7 +184,7 @@ const BudgetForm = () => {
             <div className='form-group'>
             <label htmlFor="date">Date</label>
             <input 
-            type="text" 
+            type="date" 
             id='date'
             name='date'
             className='error'
@@ -191,7 +197,8 @@ const BudgetForm = () => {
             
             </div>
             <Button size='large' block >
-                Save
+                {defalutData ? 'Edit' : "Save"}
+                
             </Button>
 
 

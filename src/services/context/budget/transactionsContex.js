@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useEffect } from "react";
 import { useReducer } from "react";
-import {  useRef } from "react";
+import {  useRef ,useState} from "react";
 import { createContext } from "react";
 import { deleteTransactions, getTransactions } from "services/apis/Transaction.api";
 
@@ -12,6 +12,9 @@ const InitialStatee = {
 } 
 
 export const transactionsContext =  createContext()
+
+
+
 
 
 
@@ -44,12 +47,21 @@ export const TransactionsProvider = ({children}) => {
     
     
     const [statee,dispttch]  = useReducer(contextReducer,InitialStatee)
+
+    const [filter,setFilter] = useState({
+        date: false,
+        amount: false,
+        category: null,
+        type: null,
+        
+    })
     
     
 
     
     // 
     const isMount = useRef(false)
+    
 
 
       

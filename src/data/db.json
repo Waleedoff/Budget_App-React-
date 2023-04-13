@@ -2,9 +2,9 @@
   "transactions": [
     {
       "title": "monthly save",
-      "amount": "1111",
+      "amount": "11116",
       "type": "expanse",
-      "category": "6",
+      "category": "2",
       "date": "2022-10-13",
       "id": 9
     },
@@ -23,6 +23,14 @@
       "category": "6",
       "date": "dd",
       "id": 12
+    },
+    {
+      "title": "shopping",
+      "amount": "3000",
+      "type": "expanse",
+      "category": "3",
+      "date": "2023-04-05",
+      "id": 14
     }
   ],
   "categories": [
@@ -32,7 +40,7 @@
     },
     {
       "id": 2,
-      "name": "Monthly incom"
+      "name": "Monthly income"
     },
     {
       "id": 3,

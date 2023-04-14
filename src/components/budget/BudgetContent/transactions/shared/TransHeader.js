@@ -1,9 +1,11 @@
 import React from 'react'
 import { useContext,useState } from 'react'
 import { categoriesContext } from 'services/context/budget/catogriesContext'
+import { transactionsContext } from 'services/context/budget/transactionsContex'
 
 const TransHeader = () => {
       
+      const {handleFilter} = useContext(transactionsContext);
 
 
       // this state take a default data,
@@ -15,14 +17,14 @@ const TransHeader = () => {
 
 const handleChange = (event) => {
       // console.log(event.target.name, event.target.value);
-      const name = event.target.name;
-      const value = event.target.value;
+      const name = event.target.name;  // names example keys and category and types
+      const value = event.target.value; // values example value of the keys
 
-      setInputs((d)=>{
-            return {
-                  ...d, [name]: value
-            }
-      })
+
+      const f = {...inputs, [name]: value}
+      setInputs(f)
+
+      handleFilter(f)
       }
       console.log(inputs);
       

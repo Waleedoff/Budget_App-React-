@@ -8,7 +8,7 @@ import SingleTrans from "./SingleTrans";
 const  TransContent = () => {
 
 
-  const {data: transactions ,loading,error} = useContext(transactionsContext)
+  const {filteredData: transactions ,loading,error} = useContext(transactionsContext)
   const {data: categories, loading: catLoading} = useContext(categoriesContext)
 
 // console.log({data, loading,error});
@@ -25,13 +25,13 @@ return (
       {!loading && !catLoading && transactions && transactions.length && categories.length && !error ?  (
         <>
         {
-transactions.map((e)=>(
-  
-  <SingleTrans e = {e} key={e.id} categories = {categories} />  // passing props insdie SingleTrans Tag ((e)) and minpluation inside the tag;
-  
-))}
+  transactions.map((e)=>(
+     <SingleTrans e = {e} key={e.id} categories = {categories} />  // passing props insdie SingleTrans Tag ((e)) and minpluation inside the tag;
+ ))}
         </>
       ): <></>}
+
+      
 
 {loading && catLoading && (
 

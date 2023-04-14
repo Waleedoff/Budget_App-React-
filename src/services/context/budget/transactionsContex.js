@@ -1,5 +1,6 @@
 import { useCallback } from "react";
 import { useEffect } from "react";
+import { useMemo } from "react";
 import { useReducer } from "react";
 import {  useRef ,useState} from "react";
 import { createContext } from "react";
@@ -55,8 +56,82 @@ export const TransactionsProvider = ({children}) => {
         type: null,
         
     })
+
+    const handleFilter = (filterData) => {
+        setFilter(filterData);
+    }
     
-    
+    console.log({filter})
+
+    const filteredData = useMemo(()=> {
+
+        let data = [...statee.data]
+
+        if (!data || !data.length) {
+            return []
+        }
+        if (filter.keys && filter.keys === 'date')
+        {
+            data = data.sort((a,b)=>{
+                const aDate = new Date(a.date).getTime()
+                const bDate = new Date(b.date).getTime()
+                return bDate - aDate
+            })
+        }
+
+
+        if (filter.keys && filter.keys === 'amount')
+        {
+            data = data.sort((a,b)=>{
+                
+                return +b.amount - +a.amount
+            })
+        }
+
+
+        if (filter.category)
+        {
+            // eslint-disable-next-line eqeqeq
+            data = data.filter(d => d.category == filter.category)
+        }
+
+        if (filter.type)
+        {
+            // eslint-disable-next-line eqeqeq
+            data = data.filter(d => d.type == filter.type)
+        }
+
+            return data
+        
+
+    },[statee.data,filter])
+
+
+    // computed total value.
+
+    const totals = useMemo(()=> {
+        let income = 0;
+        let expense = 0;
+
+
+       if(statee.data && statee.data.length){
+
+        statee.data.forEach(d=> {
+            if (d.type === 'income') {
+                income += +d.amount
+            }
+            else {
+                expense += +d.amount
+            }
+    })
+
+       }
+        return {
+            income, expense, total: income - expense
+        }
+
+    },[statee.data,filter])
+
 
     
     // 
@@ -82,8 +157,8 @@ export const TransactionsProvider = ({children}) => {
     const fetchData = useCallback ( async ()=> {
         dispttch({type: 'FETCH_START'})
         try{
-            const data = await getTransactions()
-            dispttch({type: 'FETCH_SUCCESS', payload: data})
+            const dataa = await getTransactions()
+            dispttch({type: 'FETCH_SUCCESS', payload: dataa})
         }
         catch(error){
             dispttch({type: 'FETCH_ERROR',payload: error.message})
@@ -112,7 +187,7 @@ export const TransactionsProvider = ({children}) => {
     
     return (
        
-        <transactionsContext.Provider value = {{...statee ,handleDelete,fetchData}}>
+        <transactionsContext.Provider value = {{...statee ,handleDelete,fetchData,handleFilter,filteredData,totals}}>
 
             {children}
             

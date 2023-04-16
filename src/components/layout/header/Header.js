@@ -3,6 +3,7 @@ import './Header.css'
 import LogoImg from 'assets/images/logo.png'
 import {Button, Modal}  from 'components/ui'
 import BudgetForm from 'components/budget/BudgetContent/BudgetForm/BudgetForm'
+import 'animate.css'
 const  Header = () => {
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -48,7 +49,7 @@ const  Header = () => {
                 <img src={LogoImg} alt='brand logo'/>
               </div>
            
-          <h1>Budget App</h1>
+          <h1 className='animate__flipInX'>Budget App</h1>
           </div>
         
           {/* action */}

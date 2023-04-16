@@ -1,20 +1,36 @@
 {
   "transactions": [
     {
-      "title": "project",
-      "amount": "10500",
+      "title": "income",
+      "amount": "20000",
       "type": "income",
-      "category": "1",
-      "date": "2022-10-13",
-      "id": 9
+      "category": "8",
+      "date": "2023-03-28",
+      "id": 1
     },
     {
-      "title": "shopping",
-      "amount": "1000",
+      "title": "laptop",
+      "amount": "150",
+      "type": "expanse",
+      "category": "",
+      "date": "2023-04-27",
+      "id": 2
+    },
+    {
+      "title": "INVENSEMNT",
+      "amount": "400",
       "type": "expanse",
       "category": "3",
-      "date": "2023-04-15",
-      "id": 10
+      "date": "2023-04-04",
+      "id": 3
+    },
+    {
+      "title": "income",
+      "amount": "20000",
+      "type": "income",
+      "category": "7",
+      "date": "2023-04-19",
+      "id": 4
     }
   ],
   "categories": [
